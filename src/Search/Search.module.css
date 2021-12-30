@@ -1,0 +1,54 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5%;
+}
+.inputContainer {
+    display: flex;
+    align-items: center;
+}
+.search {
+    position: absolute;
+}
+
+input[type='text'] {
+    width: 20vw;
+    background-color: #f9fcff;
+    border: none;
+    outline: 1px solid rgb(198, 198, 255);
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+@media (min-width: 360px) and (max-width: 544px) {
+    input[type='text'] {
+        width: 60vw;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 544px) {
+    input[type='text'] {
+        width: 50vw;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}
+
+
+@media (min-width: 768px) {
+    input[type='text'] {
+        width: 30vw;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}
+@media (min-width: 992px) {
+    
+}
+
+@media (min-width: 1200px) {
+
+}

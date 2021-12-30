@@ -1,0 +1,30 @@
+
+.NavButtons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+
+.Previous {
+    padding: 13px;
+    font-size: 1.2rem;
+    background: #F00000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DC281E, #F00000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DC281E, #F00000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10%;
+}
+
+.Next {
+    padding: 13px;
+    font-size: 1.2rem;
+    background: #F00000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DC281E, #F00000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DC281E, #F00000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10%;
+}

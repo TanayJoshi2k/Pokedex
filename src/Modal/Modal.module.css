@@ -1,0 +1,330 @@
+body {
+    text-transform: capitalize;
+}
+.ModalButtons {
+    width: 75%;
+    text-align: start;
+    margin-left: auto;
+    margin-right: auto;
+}
+.backButton {
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    color: red;
+}
+.backButton:hover {
+    border: 1px solid white;
+    background-color: red;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}
+.ModalContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
+.Modal{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(0, 0, 0, 0.1);
+    width: 75%;
+    height: 90%;
+    border-radius: 20px;
+    display: flex;
+}
+
+.imgContainer {
+    position: relative;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+.translucent {
+    border-radius: 20px;
+    height: 95%;
+    width: 93%;
+    background: rgba(255, 255, 255, 0.25);
+    z-index: 1;
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+}
+.name {
+    margin-top: 0;
+    padding-top: 0;
+    text-align: center;
+    font-family: 'Pacifico';
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 10;
+}
+.img {
+    height: 250px;
+    width: 250px;
+    align-self: center;
+    position: relative;
+    z-index: 10;
+}
+.types {
+    font-size: 2.5rem;
+    font-family: 'VT323';
+    color: rgb(219, 3, 3);
+    align-self: center;
+    z-index: 10;
+}
+.heightWeight {
+    font-size: 2rem;
+    margin-top: 3.5%;
+    font-family: 'VT323';
+    align-self: center;
+    z-index: 10;
+}
+.statsContainer {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.head {
+    margin-top: 2%;
+    color: rgb(219, 3, 3);
+    font-size: 3rem;
+    font-family: 'VT323';
+}
+.abilities {
+    background: rgba(255, 255, 255, 0.25);
+    width: 90%;
+    border-radius: 20px;
+    margin-top: -2.5%;
+}
+.abilities > p {
+    display: inline-block;
+    font-size: 2rem;
+    font-family: 'VT323';
+    margin-left: 5%;
+}
+.stats {
+    background: rgba(255, 255, 255, 0.25);
+    width: 90%;
+    border-radius: 20px;
+    margin-top: -2.5%;
+    font-size: 2rem;
+    font-family: 'VT323';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}   
+tr:nth-child(even) {
+    color: rgb(219, 3, 3);
+}
+td {
+    text-align: center;
+    padding-right: 1.5rem;
+}
+@media (min-width: 360px) and (max-width: 544px) {
+    .Modal {
+        display: flex;
+        flex-direction: column;
+        height: 45rem;
+    }
+    .imgContainer {
+        width: 100%;
+        display: flex;
+    }
+    .translucent {
+        border-radius: 20px;
+        margin-top: 4%;
+        height: 100%;
+        width: 93%;
+    }
+    .img {
+        height: 150px;
+        width: 150px;
+    }
+    .types > p {
+        font-size: 2rem;
+        padding-bottom: 0.8rem;
+    }
+    .heightWeight {
+        font-size: 1.5rem;
+        margin: 0 auto;
+        padding-bottom: 0.8rem;
+    }
+    .statsContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+    }
+    .head {
+        font-size: 1.7rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .abilities {
+        width: 90%;
+        text-align: center;
+    }
+    .abilities > p {
+        display: inline-block;
+        font-size: 1.5rem;
+        margin-left: 5%;
+        
+    }
+    .stats {
+        width: 90%;
+        border-radius: 20px;
+        font-size: 1.3rem;
+    }   
+    td {
+        text-align: center;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+@media (min-width: 545px) and (max-width: 700px) {
+    .Modal {
+        display: flex;
+        flex-direction: column;
+        height: 40rem;
+    }
+    .imgContainer {
+        width: 100%;
+        display: flex;
+    }
+    .translucent {
+        border-radius: 20px;
+        margin-top: 4%;
+        height: 100%;
+        width: 93%;
+    }
+    .img {
+        height: 150px;
+        width: 150px;
+    }
+    .types > p{
+        font-size: 2.2rem;
+        padding-bottom: 0.8rem;
+    }
+    .heightWeight {
+        font-size: 1.5rem;
+        margin: 0 auto;
+        padding-bottom: 0.8rem;
+    }
+    .statsContainer {
+        width: 100%;
+        display: flex;
+    }
+    .head {
+        font-size: 2rem;
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    .abilities {
+        width: 90%;
+        text-align: center;
+    }
+    .abilities > p {
+        display: inline-block;
+        font-size: 1.5rem;
+        margin-left: 5%;
+        
+    }
+    .stats {
+        width: 90%;
+        border-radius: 20px;
+        font-size: 1.3rem;
+    }   
+    td {
+        text-align: center;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+@media (min-width: 701px) {
+    .Modal {
+        height: 30rem;
+    }
+    .imgContainer {
+        width: 20rem;
+    }
+    .name {
+        font-family: 2.5rem;
+        position: absolute;
+        top:2%;
+    }
+    .img {
+        height: 200px;
+        width: 200px;
+    }
+    .types > p {
+        font-size: 2rem;
+    }
+    .heightWeight {
+        font-size: 1.5rem;
+        margin: 0 auto;
+        padding-bottom: 0.8rem;
+    }
+    .statsContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+    }
+    .head {
+        font-size: 2.5rem;
+    }
+    .abilities {
+        width: 90%;
+        text-align: center;
+    }
+    .abilities > p {
+        display: inline-block;
+        font-size: 1.5rem;
+        margin-left: 5%;
+        
+    }
+    .stats {
+        width: 90%;
+        border-radius: 20px;
+        font-size: 1.5rem;
+    }   
+    td {
+        text-align: center;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+@media (min-width: 1200px) {
+    .Modal {
+        height: 40rem;
+    }
+    .name {
+        font-size: 3rem;
+    }
+    .types > p {
+        font-size: 2.5rem;
+    }
+
+    .heightWeight {
+        font-size: 2rem;
+    }
+    .head {
+        font-size: 3rem;
+    }
+    .abilities > p {
+        font-size: 2rem;
+    }
+    td {
+        font-size: 2rem;
+    }
+}
+

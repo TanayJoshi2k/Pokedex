@@ -1,0 +1,19 @@
+nav {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width : 321px) {
+    .navImage > img {
+        height: 150px;
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width : 480px) {
+    .navImage > img {
+        height: 150px;
+        width: 325px;
+    }
+}

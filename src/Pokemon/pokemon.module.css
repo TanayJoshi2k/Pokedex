@@ -1,0 +1,75 @@
+.pokemonContainer {
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 25px;
+    padding: 20px;
+}
+.searchPokemonContainer {
+    margin: 5% auto;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;  
+}
+
+.backButton {
+    margin-top: 15%;
+}
+
+@media (min-width: 360px) and (max-width: 544px) {
+    .pokemonContainer {
+        margin-top: 3%;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 15px;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (min-width: 544px) {
+    .pokemonContainer {
+        margin-top: 3%;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 15px;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .pokemonContainer {
+        margin-top: 3%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 15px;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+    .pokemonContainer {
+        margin-top: 3%;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-gap: 15px;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
