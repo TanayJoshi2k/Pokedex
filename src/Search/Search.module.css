@@ -21,15 +21,15 @@ input[type='text'] {
     border-radius: 1rem;
     font-size: 1rem;
 }
-@media (min-width: 360px) and (max-width: 544px) {
+
+@media (max-width:359px) { 
     input[type='text'] {
         width: 60vw;
         padding: 0.5rem;
         font-size: 1rem;
     }
 }
-
-@media (min-width: 544px) {
+@media (min-width: 360px) and (max-width: 544px) {
     input[type='text'] {
         width: 50vw;
         padding: 0.5rem;
@@ -37,6 +37,13 @@ input[type='text'] {
     }
 }
 
+@media (min-width: 544px) and (max-width: 767px) {
+    input[type='text'] {
+        width: 50vw;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}
 
 @media (min-width: 768px) {
     input[type='text'] {
@@ -46,9 +53,9 @@ input[type='text'] {
     }
 }
 @media (min-width: 992px) {
-    
-}
-
-@media (min-width: 1200px) {
-
+    input[type='text'] {
+        width: 30vw;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+    }
 }

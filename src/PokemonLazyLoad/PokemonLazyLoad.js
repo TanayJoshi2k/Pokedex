@@ -1,11 +1,18 @@
+//Import Axios and React
+
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+
+// Import CSS
 import classes from "../Pokemon/pokemon.module.css";
+
+// Import Components
 import Navbar from "../Navbar/Navbar";
 import Search from "../Search/Search";
 import Modal from "../Modal/Modal";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import SearchPokemonCard from "../SearchPokemonCard/SearchPokemonCard";
+import Spinner from "../Spinner/Spinner";
 import Footer from "../Footer/Footer";
 import Gradients from "../Gradients/Gradients";
 
@@ -21,20 +28,22 @@ const PokemonLazyLoad = () => {
   const [searching, setSearching] = useState(false);
 
   const getSearchPokemon = (e) => {
-    setSearching(false);
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.target.value != "") {
+      setSearching(true);
       e.preventDefault();
       axios
         .get(`https://pokeapi.co/api/v2/pokemon/${searchPokemon.toLowerCase()}`)
-        .then((res) => setSearchPokemonData(res.data))
+        .then((res) => {
+          setSearchPokemonData(res.data);
+          setSearching(false);
+        })
         .catch(() => console.log("No matching pokemon found!"));
-      setSearching(true);
     }
   };
 
   const getPosts = (offset, limit) => {
     axios
-      .get(baseURL + `?offset=${offset}&limit=${limit}`)
+      .get(baseURL + `?offset=${offset}&limit=${limit - offset}`)
       .then((res) => {
         let requests = res.data.results.map((pokemon) => {
           return axios.get(pokemon.url);
@@ -48,17 +57,17 @@ const PokemonLazyLoad = () => {
   };
 
   const getMorePosts = () => {
-    getPosts(offset, offset + 20);
+    getPosts(offset, offset + 10);
   };
 
   const handleScroll = () => {
     if (
-      window.innerHeight + document.documentElement.scrollTop !==
-      document.documentElement.offsetHeight
-    )
-      return;
-    setOffset((prevOffset) => prevOffset + 20);
-    setIsFetching(true);
+      window.innerHeight + window.pageYOffset >=
+      document.body.offsetHeight - 100
+    ) {
+      setOffset((prevOffset) => prevOffset + 10);
+      setIsFetching(true);
+    }
   };
 
   useEffect(() => {
@@ -67,7 +76,12 @@ const PokemonLazyLoad = () => {
   }, []);
 
   useEffect(() => {
-    getPosts(offset, offset + 20);
+    window.addEventListener("touchmove", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    getPosts(offset, offset + 10);
   }, []);
 
   useEffect(() => {
@@ -89,6 +103,10 @@ const PokemonLazyLoad = () => {
     setModal(isSet);
   };
 
+  if (searching) {
+    return <Spinner />;
+  }
+
   if (Object.keys(searchPokemonData).length !== 0) {
     let color;
     if (searchPokemonData.types.length === 2) {
@@ -105,29 +123,28 @@ const PokemonLazyLoad = () => {
       );
     }
     return (
-      <div>
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         {!modal && (
           <div className={classes.searchPokemonContainer}>
-            {!modal && (
-              <SearchPokemonCard
-                toggleModal={() =>
-                  toggleModalHandler(
-                    true,
-                    searchPokemonData.name,
-                    searchPokemonData.sprites.front_default,
-                    color,
-                    searchPokemonData.abilities,
-                    searchPokemonData.stats,
-                    searchPokemonData.height,
-                    searchPokemonData.weight,
-                    searchPokemonData.types
-                  )
-                }
-                types={searchPokemonData.types}
-                name={searchPokemonData.name}
-                image={searchPokemonData.sprites.front_default}
-              />
-            )}
+            <SearchPokemonCard
+              toggleModal={toggleModalHandler}
+              backgroundColor={color}
+              name={searchPokemonData.name}
+              pokemonImage={searchPokemonData.sprites.front_default}
+              abilities={searchPokemonData.abilities}
+              stats={searchPokemonData.stats}
+              height={searchPokemonData.height}
+              weight={searchPokemonData.weight}
+              types={searchPokemonData.types}
+            />
           </div>
         )}
         {modal && (
@@ -156,7 +173,7 @@ const PokemonLazyLoad = () => {
           getSearchPokemon={getSearchPokemon}
         />
       )}
-      {!searching ? ( //if searching==false, render the pokemon container. else none
+      {!modal && ( //if searching==false, render the pokemon container. else none
         <div className={classes.pokemonContainer}>
           {!modal &&
             pokemons.flat().map((record, i) => {
@@ -197,7 +214,7 @@ const PokemonLazyLoad = () => {
               );
             })}
         </div>
-      ) : null}
+      )}
 
       {modal && (
         <Modal

@@ -1,21 +1,24 @@
 import React from 'react'
 import classes from './Footer.module.css';
 const Footer = (props) => {
+
+    const {modal, previousPageURL, goPrev, nextPageURL, goNext} = props
+    
     return (
             <footer className={classes.NavButtons}>
                 <div>
-                    {!props.modal && 
+                    {!modal && 
                     <button id="pre" className={classes.Previous}
-                    style={props.previousPageURL? {visibility:'visible'}: {visibility: 'hidden'}}
-                    onClick = {props.goPrev}>
+                    style={previousPageURL? {visibility:'visible'}: {visibility: 'hidden'}}
+                    onClick = {goPrev}>
                         Previous
                     </button>}
                 </div>
                 <div>
-                    {!props.modal && 
+                    {!modal && 
                     <button id="next" className={classes.Next}
-                    style={props.nextPageURL? {visibility:'visible'}: {visibility: 'hidden'}} 
-                    onClick = {props.goNext}>
+                    style={nextPageURL? {visibility:'visible'}: {visibility: 'hidden'}} 
+                    onClick = {goNext}>
                         Next
                     </button>}   
                 </div>

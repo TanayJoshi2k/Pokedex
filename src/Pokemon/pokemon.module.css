@@ -4,6 +4,8 @@
     grid-template-columns: auto auto auto;
     grid-gap: 25px;
     padding: 20px;
+    height: auto;
+    width: 100%;
 }
 .searchPokemonContainer {
     margin: 5% auto;
@@ -16,6 +18,19 @@
 
 .backButton {
     margin-top: 15%;
+}
+
+@media (max-width:359px) {
+    .pokemonContainer {
+        margin-top: 3%;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 15px;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 @media (min-width: 360px) and (max-width: 544px) {
@@ -56,14 +71,13 @@
         text-align: center;
     }
 }
-
+/* 
 @media (min-width: 992px) {
 
-}
+} */
 
 @media (min-width: 1200px) {
     .pokemonContainer {
-        margin-top: 3%;
         display: grid;
         grid-template-columns: auto auto auto auto;
         grid-gap: 15px;

@@ -14,8 +14,8 @@ const Pokemon = () => {
   const [modal, setModal] = useState(false);
   const [pageURLs, setPageURLs] = useState([]);
   const [selectedPokemonData, setSelectedPokemonData] = useState({});
-  function fetchDetails() {
 
+  function fetchDetails() {
     axios.get(currentPageURL).then((res) => {
       setPageURLs([res.data.previous, res.data.next]);
       let requests = res.data.results.map((pokemon) => {
@@ -25,9 +25,12 @@ const Pokemon = () => {
         setPokemons(data);
       });
     });
-
   }
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchDetails();
+  }, []);
+  
   useEffect(() => {
     window.scrollTo(0, 0);
     fetchDetails();
@@ -68,10 +71,8 @@ const Pokemon = () => {
   };
   return (
     <div>
-      {!modal && <Navbar />}
       <div className={classes.pokemonContainer}>
-        {!modal &&
-          pokemons.map((record, i) => {
+        {pokemons.map((record, i) => {
             let color = Gradients(record.data.types);
             if (record.data.types.length === 2) {
               color = Gradients(
@@ -105,7 +106,6 @@ const Pokemon = () => {
                 types={record.data.types}
                 name={record.data.name}
                 image={record.data.sprites.front_default}
-                types={record.data.types}
               />
             );
           })}

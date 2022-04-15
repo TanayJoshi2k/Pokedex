@@ -3,37 +3,41 @@ import Gradients from "../Gradients/Gradients";
 import classes from "./PokemonCard.module.css";
 
 const PokemonCard = (props) => {
-  let color = Gradients(props.types);
-  if (props.types.length === 2) {
+
+  const {types, toggleModal, image, name} = props;
+
+
+  let color = Gradients(types);
+  if (types.length === 2) {
     color = Gradients(
-      props.types[0].type.name,
-      props.types[1].type.name,
-      props.types.length
+      types[0].type.name,
+      types[1].type.name,
+      types.length
     );
   } else {
     color = Gradients(
-      props.types[0].type.name,
-      props.types[0].type.name,
-      props.types.length
+      types[0].type.name,
+      types[0].type.name,
+      types.length
     );
   }
   return (
     <div
       style={{ background: `linear-gradient(${color[0]}, ${color[1]})` }}
       className={classes.gridItem}
-      onClick={props.toggleModal}
+      onClick={() => {toggleModal(true)}}
     >
       <img
         className={classes.img}
-        src={props.image}
+        src={image}
         alt="..."
         width="250"
         height="250"
       ></img>
-      <p className={classes.name}>{props.name}</p>
+      <p className={classes.name}>{name}</p>
       <div className={classes.types}>
 
-          {props.types.map((type) => {
+          {types.map((type) => {
             return (
               <p key={Math.random()}>
                 {type.type.name}
