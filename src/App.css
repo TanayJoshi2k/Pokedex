@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: url('C:\\Users\\Prashant Joshi\\pokemon\\src\\Assets\\dot-grid.png');
+    background: url('../src/Assets/dot-grid.png');
     max-width: 100%;
     overflow-x: hidden;
     width: 100vw;
